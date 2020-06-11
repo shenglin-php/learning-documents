@@ -9,7 +9,7 @@
 使用map对数组进行获取指定key值数据并返回新数组
 
 
-```
+```javascript
 var defaultArr = [
  {
    "id": 1,
@@ -36,7 +36,7 @@ var nameArrs = defaultArr.map(o => o.name);
 ```
 
 打印结果
-```
+```javascript
 ["Jone", "Green", "Xiaoming"]
 ```
 
@@ -54,5 +54,16 @@ const oldRichText;
 const regex = new RegExp('<img', 'gi')
 const newRichText = oldRichText.replace(regex, `<img style="max-width: 100%;"`)
 ```
+
+## 3. 二维数组根据某个键值获取下标
+```javascript
+arrSelect(arr,key,val){
+  for (var i = 0; i < arr.length; i++) {
+    if (arr[i][key] == val) return i;
+  }
+  return -1;
+}
+```
+
 
 ## 待续
