@@ -18,4 +18,42 @@
 
 ## Sms 短信
 
+## 基于laravel框架下的实用方法
+
+### 检查数据库表是否存在索引
+
+#### 方法解释
+  1. 参数
+    - $table 数据库表名称
+    - $name 数据库表中索引名称
+  2. 返回数据 
+    - bool true|false 有或者没有
+
+#### 用法
+```
+if($this->hasIndex('test','test_email_index')){
+
+    $table->dropIndex('test_email_index'); 
+    
+}
+
+### 强制使用索引
+Model::when(hasIndex('model_table_name', 'table_index_name'),function ($q){
+    $q->from(DB::raw('`model_table_name` FORCE INDEX (`table_index_name`)'));
+});
+
+```
+
+#### 方法源码
+```
+public function hasIndex($table, $name)
+{
+  $conn = Schema::getConnection();
+  $dbSchemaManager = $conn->getDoctrineSchemaManager();
+  $doctrineTable = $dbSchemaManager->listTableDetails($table);
+  return $doctrineTable->hasIndex($name);
+}
+```
+
 ## 待续
+

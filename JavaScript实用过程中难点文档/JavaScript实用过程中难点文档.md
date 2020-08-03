@@ -58,8 +58,23 @@ const newRichText = oldRichText.replace(regex, `<img style="max-width: 100%;"`)
 ## 3. 二维数组根据某个键值获取下标
 ```javascript
 arrSelect(arr,key,val){
-  for (var i = 0; i < arr.length; i++) {
-    if (arr[i][key] == val) return i;
+  if (!Array.isArray(arr)) {
+    return -1;
+  }
+  let length = arr.length;
+  if (length <= 0) {
+    return -1;
+  }
+  if (typeof key == "undefined" || key === "") {
+    return -1;
+  }
+  if (typeof val == "undefined") {
+    return -1;
+  }
+  for (let i = 0; i < length; i++) {
+    if (arr[i][key] == val) {
+      return i;
+    }
   }
   return -1;
 }
