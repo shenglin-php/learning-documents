@@ -80,5 +80,43 @@ arrSelect(arr,key,val){
 }
 ```
 
+## 4. 数组交集
+```javascript
+get_arr_intersect(arr1, arr2){
+  let intersect_arr = arr1.filter(function(v){
+      return arr2.indexOf(v)!==-1 // 利用filter方法来遍历是否有相同的元素
+  })
+  return intersect_arr;
+}
+```
+
+## 5. 数组差集
+### 所有差集
+```javascript
+get_all_arr_diff(arr1, arr2){
+  let diff_arr = arr1.concat(arr2).filter(function (v) {
+      return arr1.indexOf(v)===-1 || arr2 .indexOf(v)===-1
+  })
+  return diff_arr;
+}
+```
+### 前面的差
+```javascript
+get_left_arr_diff(arr1, arr2){
+  let diff_arr = arr1.concat(arr2).filter(function (v) {
+      return arr1.indexOf(v)===-1
+  })
+  return diff_arr;
+}
+```
+### 后面的差
+```javascript
+get_right_arr_diff(arr1, arr2){
+  let diff_arr = arr1.concat(arr2).filter(function (v) {
+      return arr2 .indexOf(v)===-1
+  })
+  return diff_arr;
+}
+```
 
 ## 待续
