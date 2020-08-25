@@ -100,20 +100,11 @@ get_all_arr_diff(arr1, arr2){
   return diff_arr;
 }
 ```
-### 前面的差
+### 部分差集
 ```javascript
 get_left_arr_diff(arr1, arr2){
   let diff_arr = arr1.concat(arr2).filter(function (v) {
       return arr1.indexOf(v)===-1
-  })
-  return diff_arr;
-}
-```
-### 后面的差
-```javascript
-get_right_arr_diff(arr1, arr2){
-  let diff_arr = arr1.concat(arr2).filter(function (v) {
-      return arr2 .indexOf(v)===-1
   })
   return diff_arr;
 }
