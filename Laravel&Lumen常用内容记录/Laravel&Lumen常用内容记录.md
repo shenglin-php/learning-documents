@@ -55,5 +55,21 @@ public function hasIndex($table, $name)
 }
 ```
 
+### 获取微秒级时间和内存使用
+```php
+  $time1              = microtime(true);
+  $memory_get_usage1  = memory_get_usage();
+  $time2              = microtime(true);
+  $memory_get_usage2  = memory_get_usage();
+  $result = [
+      'time1' => $time1,
+      'memory_get_usage1' => $memory_get_usage1,
+      'time2' => $time2,
+      'memory_get_usage2' => $memory_get_usage2,
+      'time2 - time1' => intval(1000 * ($time2 - $time1)) . 'ms',
+      'memory_get_usage2 - memory_get_usage1' => intval(($memory_get_usage2 - $memory_get_usage1) / 1024) . 'kb',
+  ];
+```
 ## 待续
+
 
