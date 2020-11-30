@@ -36,7 +36,7 @@ if($this->hasIndex('test','test_email_index')){
     $table->dropIndex('test_email_index'); 
     
 }
-
+force index (idx_lx_pybm_otype_ypbm_ywybm_xykhbm_ywrqyearmonthday)
 ### 强制使用索引
 Model::when(hasIndex('model_table_name', 'table_index_name'),function ($q){
     $q->from(DB::raw('`model_table_name` FORCE INDEX (`table_index_name`)'));
