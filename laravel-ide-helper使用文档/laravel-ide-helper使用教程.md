@@ -29,4 +29,7 @@ php artisan ide-helper:models
 
 #生成 PhpStorm Meta file
 php artisan ide-helper:meta 
+
+#为单个数据模型生成注释
+php artisan ide-helper:models 
 ```

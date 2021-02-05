@@ -171,5 +171,14 @@ SELECT GROUP_CONCAT(name SEPARATOR ',') as name from product_stock;
   >  [mysqld]
   >  sql_mode=’STRICT_TRANS_TABLES,NO_ZERO_IN_DATE,NO_ZERO_DATE,ERROR_FOR_DIVISION_BY_ZERO,NO_AUTO_CREATE_USER,NO_ENGINE_SUBSTITUTION’
   
+## 数据被死锁锁住解锁方式
+
+```mysql
+
+  select concat('kill ',id,';') from information_schema.processlist t where 1=1 and t.db  = 'db_name';
+
+```
+
+Kill 过程中会遇上错误，跳过后成功解锁！
 
 ## 待续
