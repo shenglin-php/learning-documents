@@ -72,4 +72,7 @@ public function hasIndex($table, $name)
 ```
 ## 待续
 
+### hasManyThrough
 
+A为User B为UserOrg C为 Org
+$this->hasManyThrough(B, C, ‘B关联A的字段’, ‘A关联B的字段’, ‘C关联B的字段’, ‘B关联C的字段’);
