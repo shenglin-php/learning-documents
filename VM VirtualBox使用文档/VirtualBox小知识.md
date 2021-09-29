@@ -1,6 +1,6 @@
 ## 1. 赋予用户挂载目录权限
  
-- 将当期登录用户加入到vboxsf组
+- 将当前登录用户加入到vboxsf组
 ```shell
 sudo usermod -aG vboxsf $(whoami)
 ```
