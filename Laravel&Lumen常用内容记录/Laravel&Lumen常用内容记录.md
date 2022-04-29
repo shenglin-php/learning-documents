@@ -4,6 +4,32 @@
 
 ## Cors 跨域
 
+  在nginx上进行配置效率会高
+  ```shell
+    location / {  
+    
+      if ($request_method = 'OPTIONS') {
+        # 对于OPTIONS，不保存请求日志到日志文件
+        access_log off;
+    
+        # 这里配置允许跨域的域名，* 代表所有，也可以写域名：http://www.xxx.com 或者IP+端口 http://192.168.1.10
+        add_header 'Access-Control-Allow-Origin' '*';
+        # 允许的请求类型
+        add_header 'Access-Control-Allow-Methods' '*';
+        add_header 'Access-Control-Allow-Credentials' true;
+        add_header 'Access-Control-Allow-Headers' '*';
+        # 允许跨域的最大时间，超过这个时间又会重发一次OPTIONS请求获取新的认证
+        add_header 'Access-Control-Max-Age' 1728000;
+        add_header 'Content-Type' 'text/plain charset=UTF-8';
+        add_header 'Content-Length' 0;
+        # 直接在这里返回204响应，不转发到后台服务程序
+        return 204;
+      }
+        
+      try_files $uri $uri/ /index.php$is_args$query_string;  
+    }
+  ```
+
 ## Collection 集合
 
 ## Eloquent 模型及关联
@@ -70,9 +96,11 @@ public function hasIndex($table, $name)
       'memory_get_usage2 - memory_get_usage1' => intval(($memory_get_usage2 - $memory_get_usage1) / 1024) . 'kb',
   ];
 ```
+
+
+
 ## 待续
 
 ### hasManyThrough
-
-A为User B为UserOrg C为 Org
-$this->hasManyThrough(B, C, ‘B关联A的字段’, ‘A关联B的字段’, ‘C关联B的字段’, ‘B关联C的字段’);
+A为User B为 Org C为UserOrg 
+$this->hasManyThrough(B, C,  ‘C关联A的字段’, ‘B关联C的字段’, ‘A关联C的字段’, ‘C关联B的字段’);
